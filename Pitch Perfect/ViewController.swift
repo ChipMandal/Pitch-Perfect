@@ -13,12 +13,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var recordingLabel: UILabel!
     @IBOutlet weak var stopButton: UIButton!
 
+    @IBOutlet weak var recordButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
     override func viewWillAppear(animated: Bool) {
         stopButton.hidden = true;
+        recordButton.enabled = true;
 
     }
 
@@ -28,6 +30,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func recordPress(sender: UIButton, forEvent event: UIEvent) {
+        recordButton.enabled = false;
         recordingLabel.hidden = false;
         stopButton.hidden = false;
 
