@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="Pitch_Perfect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,11 +15,73 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lc7-VU-Fly">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="microphone">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recording" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hgE-uK-UG7">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bGK-KF-e1W">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="stop">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="bGK-KF-e1W" secondAttribute="centerX" id="GwI-19-ah6"/>
+                            <constraint firstAttribute="centerX" secondItem="lc7-VU-Fly" secondAttribute="centerX" id="HsG-Vd-HwT"/>
+                            <constraint firstItem="hgE-uK-UG7" firstAttribute="top" secondItem="lc7-VU-Fly" secondAttribute="bottom" constant="8" id="KCt-g5-4iF"/>
+                            <constraint firstAttribute="centerX" secondItem="hgE-uK-UG7" secondAttribute="centerX" constant="-0.5" id="Ltn-2z-oxK"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="bGK-KF-e1W" secondAttribute="bottom" constant="28" id="bkH-EI-RX8"/>
+                            <constraint firstAttribute="centerY" secondItem="lc7-VU-Fly" secondAttribute="centerY" id="f8r-mG-ykL"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="lc7-VU-Fly"/>
+                                <exclude reference="hgE-uK-UG7"/>
+                                <exclude reference="bGK-KF-e1W"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="bkH-EI-RX8"/>
+                                <exclude reference="KCt-g5-4iF"/>
+                                <exclude reference="Ltn-2z-oxK"/>
+                                <exclude reference="GwI-19-ah6"/>
+                                <exclude reference="HsG-Vd-HwT"/>
+                                <exclude reference="f8r-mG-ykL"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="lc7-VU-Fly"/>
+                                <include reference="hgE-uK-UG7"/>
+                                <include reference="bGK-KF-e1W"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="bkH-EI-RX8"/>
+                                <include reference="KCt-g5-4iF"/>
+                                <include reference="Ltn-2z-oxK"/>
+                                <include reference="GwI-19-ah6"/>
+                                <include reference="HsG-Vd-HwT"/>
+                                <include reference="f8r-mG-ykL"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="microphone" width="100" height="100"/>
+        <image name="stop" width="50" height="50"/>
+    </resources>
 </document>
