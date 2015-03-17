@@ -2,6 +2,8 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="trP-RH-K6F">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Record-->
@@ -95,17 +97,50 @@
             </objects>
             <point key="canvasLocation" x="2535" y="-332"/>
         </scene>
-        <!--View Controller-->
+        <!--Play Sounds View Controller-->
         <scene sceneID="bAv-cS-Dkr">
             <objects>
-                <viewController id="5L9-GA-CG3" sceneMemberID="viewController">
+                <viewController id="5L9-GA-CG3" customClass="PlaySoundsViewController" customModule="Pitch_Perfect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="i0v-zB-n0l"/>
                         <viewControllerLayoutGuide type="bottom" id="Iyr-fI-8tA"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Wso-st-GJn">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="668-bE-ddh">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="snail">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.39739358609999997" green="0.81933218409999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.39739358609999997" green="0.81933218409999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="668-bE-ddh" firstAttribute="top" secondItem="i0v-zB-n0l" secondAttribute="bottom" constant="47" id="NsI-78-fo4"/>
+                            <constraint firstItem="668-bE-ddh" firstAttribute="leading" secondItem="Wso-st-GJn" secondAttribute="leadingMargin" constant="30" id="WXT-6E-tCa"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="668-bE-ddh"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="NsI-78-fo4"/>
+                                <exclude reference="WXT-6E-tCa"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="668-bE-ddh"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="NsI-78-fo4"/>
+                                <include reference="WXT-6E-tCa"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Gh-vD-vmK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -133,6 +168,8 @@
     </scenes>
     <resources>
         <image name="microphone" width="100" height="100"/>
+        <image name="snail" width="100" height="100"/>
         <image name="stop" width="50" height="50"/>
     </resources>
+    <color key="tintColor" red="0.39739358609999997" green="0.81933218409999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>
