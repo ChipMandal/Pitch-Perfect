@@ -11,9 +11,15 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var recordingLabel: UILabel!
+    @IBOutlet weak var stopButton: UIButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    override func viewWillAppear(animated: Bool) {
+        stopButton.hidden = true;
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -23,6 +29,8 @@ class ViewController: UIViewController {
 
     @IBAction func recordPress(sender: UIButton, forEvent event: UIEvent) {
         recordingLabel.hidden = false;
+        stopButton.hidden = false;
+
     }
 
     @IBAction func stopPress(sender: UIButton) {
