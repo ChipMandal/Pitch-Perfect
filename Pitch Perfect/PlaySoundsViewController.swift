@@ -11,9 +11,17 @@ import AVFoundation
 
 class PlaySoundsViewController: UIViewController {
 
+    var player:AVAudioPlayer!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        if var fileUrl =  NSURL.fileURLWithPath(NSBundle.mainBundle().pathForResource("movie_quote",ofType:"mp3")!) {
+            player = AVAudioPlayer(contentsOfURL: fileUrl, error:nil);
+            //print(fileUrl)
 
+        } else {
+            print("Could not find file")
+        }
         // Do any additional setup after loading the view.
     }
 
@@ -23,7 +31,12 @@ class PlaySoundsViewController: UIViewController {
     }
     
 
-    @IBAction func snailButton(sender: UIButton) {        
+    @IBAction func snailButton(sender: UIButton) {
+//
+//        var player = AVAudioPlayer(contentsOfURL: fileUrl, error:nil);
+       player.play();
+        
+        //var player:AVAudioPlayer =  AVAudioPlayer
         
     }
     /*
