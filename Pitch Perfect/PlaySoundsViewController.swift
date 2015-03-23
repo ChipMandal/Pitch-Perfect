@@ -31,10 +31,19 @@ class PlaySoundsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func hareButton(sender: UIButton) {
+        player.stop();
+        player.rate = 2.0;
+        player.play();
+    }
 
+    @IBAction func stopButton(sender: UIButton) {
+        player.stop();
+    }
     @IBAction func snailButton(sender: UIButton) {
 //
 //        var player = AVAudioPlayer(contentsOfURL: fileUrl, error:nil);
+        player.stop();
         player.rate = 0.5
         player.play()
     }
