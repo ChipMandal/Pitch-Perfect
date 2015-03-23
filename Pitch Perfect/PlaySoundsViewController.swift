@@ -16,7 +16,8 @@ class PlaySoundsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if var fileUrl =  NSURL.fileURLWithPath(NSBundle.mainBundle().pathForResource("movie_quote",ofType:"mp3")!) {
-            player = AVAudioPlayer(contentsOfURL: fileUrl, error:nil);
+            player = AVAudioPlayer(contentsOfURL: fileUrl, error:nil)
+            player.enableRate = true
             //print(fileUrl)
 
         } else {
@@ -34,10 +35,8 @@ class PlaySoundsViewController: UIViewController {
     @IBAction func snailButton(sender: UIButton) {
 //
 //        var player = AVAudioPlayer(contentsOfURL: fileUrl, error:nil);
-       player.play();
-        
-        //var player:AVAudioPlayer =  AVAudioPlayer
-        
+        player.rate = 0.5
+        player.play()
     }
     /*
     // MARK: - Navigation
