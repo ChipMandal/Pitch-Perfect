@@ -32,20 +32,24 @@ class PlaySoundsViewController: UIViewController {
     }
     
     @IBAction func hareButton(sender: UIButton) {
-        player.stop();
-        player.rate = 2.0;
-        player.play();
+        playWithRate(2.0)
     }
 
     @IBAction func stopButton(sender: UIButton) {
         player.stop();
+        player.currentTime = 0.0
+    }
+    
+    func playWithRate(rate: Float) {
+        player.stop();
+        player.rate = rate;
+        player.play();
     }
     @IBAction func snailButton(sender: UIButton) {
 //
 //        var player = AVAudioPlayer(contentsOfURL: fileUrl, error:nil);
-        player.stop();
-        player.rate = 0.5
-        player.play()
+        playWithRate(0.5)
+
     }
     /*
     // MARK: - Navigation

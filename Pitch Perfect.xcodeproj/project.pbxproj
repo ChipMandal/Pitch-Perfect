@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D510CA571AB95C6800E841D2 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D510CA561AB95C6800E841D2 /* AVFoundation.framework */; };
-		D510CA5D1ABF8F9100E841D2 /* movie_quote.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D510CA5C1ABF8F9100E841D2 /* movie_quote.mp3 */; };
+		D510CA5F1AC149C900E841D2 /* movie_quote.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D510CA5E1AC149C900E841D2 /* movie_quote.mp3 */; };
 		F7460FC01AB78A6800F7AE8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7460FBF1AB78A6800F7AE8E /* AppDelegate.swift */; };
 		F7460FC21AB78A6800F7AE8E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7460FC11AB78A6800F7AE8E /* ViewController.swift */; };
 		F7460FC51AB78A6800F7AE8E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7460FC31AB78A6800F7AE8E /* Main.storyboard */; };
@@ -30,7 +30,7 @@
 
 /* Begin PBXFileReference section */
 		D510CA561AB95C6800E841D2 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		D510CA5C1ABF8F9100E841D2 /* movie_quote.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = movie_quote.mp3; path = ../../../../../Downloads/movie_quote.mp3; sourceTree = "<group>"; };
+		D510CA5E1AC149C900E841D2 /* movie_quote.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = movie_quote.mp3; path = ../movie_quote.mp3; sourceTree = "<group>"; };
 		F7460FBA1AB78A6800F7AE8E /* Pitch Perfect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pitch Perfect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7460FBE1AB78A6800F7AE8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F7460FBF1AB78A6800F7AE8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -99,7 +99,7 @@
 		F7460FBD1AB78A6800F7AE8E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				D510CA5C1ABF8F9100E841D2 /* movie_quote.mp3 */,
+				D510CA5E1AC149C900E841D2 /* movie_quote.mp3 */,
 				F7460FBE1AB78A6800F7AE8E /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -204,7 +204,7 @@
 			files = (
 				F7460FC51AB78A6800F7AE8E /* Main.storyboard in Resources */,
 				F7460FCA1AB78A6800F7AE8E /* LaunchScreen.xib in Resources */,
-				D510CA5D1ABF8F9100E841D2 /* movie_quote.mp3 in Resources */,
+				D510CA5F1AC149C900E841D2 /* movie_quote.mp3 in Resources */,
 				F7460FC71AB78A6800F7AE8E /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
