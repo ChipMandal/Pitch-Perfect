@@ -8,7 +8,7 @@
 
 import Foundation
 
-class RecordingData {
+class RecordingData :NSObject {
     var fileName: String!
     var filePath: NSURL!
 }

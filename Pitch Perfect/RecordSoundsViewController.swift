@@ -9,8 +9,9 @@
 import UIKit
 import AVFoundation
 
-class RecordSoundsViewController: UIViewController {
+class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
 
+    
     @IBOutlet weak var recordingLabel: UILabel!
     @IBOutlet weak var stopButton: UIButton!
 
@@ -53,12 +54,25 @@ class RecordSoundsViewController: UIViewController {
         session.setCategory(AVAudioSessionCategoryPlayAndRecord, error: nil)
         
         audioRecorder = AVAudioRecorder(URL: filePath, settings: nil, error: nil)
+        audioRecorder.delegate = self
         audioRecorder.meteringEnabled = true
         audioRecorder.prepareToRecord()
         audioRecorder.record()
         
         
     }
+    func audioRecorderDidFinishRecording(recorder: AVAudioRecorder!, successfully flag: Bool) {
+        print("Called did finish recording")
+        var recordingData: RecordingData = RecordingData()
+        recordingData.filePath = recorder.url
+        recordingData.fileName = recorder.url.lastPathComponent
+        if ( flag ) {
+            performSegueWithIdentifier("stopRecording", sender: recordingData)
+        }
+        
+    }
+    
+    
 
     @IBAction func stopPress(sender: UIButton) {
         recordingLabel.hidden = true;
