@@ -119,6 +119,13 @@
                                     <action selector="snailButton:" destination="5L9-GA-CG3" eventType="touchUpInside" id="Sa7-jt-qOY"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Igw-3a-A9K">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="chipmunk">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FAf-r3-mFV">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <state key="normal" image="hare">
@@ -138,45 +145,68 @@
                                     <action selector="stopButton:" destination="5L9-GA-CG3" eventType="touchUpInside" id="LeC-Rd-RDs"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fmy-Y0-zst">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="snail">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.39739358609999997" green="0.81933218409999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.39739358609999997" green="0.81933218409999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="FAf-r3-mFV" firstAttribute="top" secondItem="i0v-zB-n0l" secondAttribute="bottom" constant="47" id="IJt-KT-GpG"/>
+                            <constraint firstItem="Iyr-fI-8tA" firstAttribute="top" secondItem="Fmy-Y0-zst" secondAttribute="bottom" constant="87" id="L5n-EF-CxJ"/>
+                            <constraint firstItem="Igw-3a-A9K" firstAttribute="leading" secondItem="Wso-st-GJn" secondAttribute="leadingMargin" constant="30" id="MVR-95-afT"/>
                             <constraint firstItem="668-bE-ddh" firstAttribute="top" secondItem="i0v-zB-n0l" secondAttribute="bottom" constant="47" id="NsI-78-fo4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="FAf-r3-mFV" secondAttribute="trailing" constant="30" id="V2g-cu-a7V"/>
                             <constraint firstItem="668-bE-ddh" firstAttribute="leading" secondItem="Wso-st-GJn" secondAttribute="leadingMargin" constant="30" id="WXT-6E-tCa"/>
                             <constraint firstItem="Iyr-fI-8tA" firstAttribute="top" secondItem="dkj-sz-D9N" secondAttribute="bottom" constant="30" id="bzH-9X-RUP"/>
+                            <constraint firstItem="Iyr-fI-8tA" firstAttribute="top" secondItem="Igw-3a-A9K" secondAttribute="bottom" constant="87" id="ewq-Bz-JfV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Fmy-Y0-zst" secondAttribute="trailing" constant="30" id="sm2-q6-HOG"/>
                             <constraint firstAttribute="centerX" secondItem="dkj-sz-D9N" secondAttribute="centerX" id="xR9-xB-OY0"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="668-bE-ddh"/>
+                                <exclude reference="Igw-3a-A9K"/>
                                 <exclude reference="FAf-r3-mFV"/>
                                 <exclude reference="dkj-sz-D9N"/>
+                                <exclude reference="Fmy-Y0-zst"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="bzH-9X-RUP"/>
                                 <exclude reference="NsI-78-fo4"/>
                                 <exclude reference="WXT-6E-tCa"/>
                                 <exclude reference="IJt-KT-GpG"/>
                                 <exclude reference="V2g-cu-a7V"/>
+                                <exclude reference="MVR-95-afT"/>
+                                <exclude reference="sm2-q6-HOG"/>
                                 <exclude reference="xR9-xB-OY0"/>
+                                <exclude reference="L5n-EF-CxJ"/>
+                                <exclude reference="bzH-9X-RUP"/>
+                                <exclude reference="ewq-Bz-JfV"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="668-bE-ddh"/>
+                                <include reference="Igw-3a-A9K"/>
                                 <include reference="FAf-r3-mFV"/>
                                 <include reference="dkj-sz-D9N"/>
+                                <include reference="Fmy-Y0-zst"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="bzH-9X-RUP"/>
                                 <include reference="NsI-78-fo4"/>
                                 <include reference="WXT-6E-tCa"/>
                                 <include reference="IJt-KT-GpG"/>
                                 <include reference="V2g-cu-a7V"/>
+                                <include reference="MVR-95-afT"/>
+                                <include reference="sm2-q6-HOG"/>
                                 <include reference="xR9-xB-OY0"/>
+                                <include reference="L5n-EF-CxJ"/>
+                                <include reference="bzH-9X-RUP"/>
+                                <include reference="ewq-Bz-JfV"/>
                             </mask>
                         </variation>
                     </view>
@@ -205,6 +235,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chipmunk" width="100" height="100"/>
         <image name="hare" width="100" height="100"/>
         <image name="microphone" width="100" height="100"/>
         <image name="snail" width="100" height="100"/>
