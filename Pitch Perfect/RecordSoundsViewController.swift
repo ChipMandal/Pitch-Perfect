@@ -71,8 +71,13 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         }
         
     }
-    
-    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "stopRecording") {
+            let playSoundsViewController:PlaySoundsViewController = segue.destinationViewController as PlaySoundsViewController
+            let data = sender as RecordingData
+            playSoundsViewController.recieveRecordedAudio = data
+        }
+    }
 
     @IBAction func stopPress(sender: UIButton) {
         recordingLabel.hidden = true;
