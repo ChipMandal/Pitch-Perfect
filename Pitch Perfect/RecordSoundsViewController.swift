@@ -11,6 +11,7 @@ import AVFoundation
 
 class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
 
+    let STOP_RECORDING_SEGUE = "stopRecording"
     
     @IBOutlet weak var recordingLabel: UILabel!
     @IBOutlet weak var stopButton: UIButton!
@@ -67,12 +68,12 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         recordingData.filePath = recorder.url
         recordingData.fileName = recorder.url.lastPathComponent
         if ( flag ) {
-            performSegueWithIdentifier("stopRecording", sender: recordingData)
+            performSegueWithIdentifier(STOP_RECORDING_SEGUE, sender: recordingData)
         }
         
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier == "stopRecording") {
+        if (segue.identifier == STOP_RECORDING_SEGUE) {
             let playSoundsViewController:PlaySoundsViewController = segue.destinationViewController as PlaySoundsViewController
             let data = sender as RecordingData
             playSoundsViewController.recieveRecordedAudio = data
