@@ -125,6 +125,9 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="chipmunkButton:" destination="5L9-GA-CG3" eventType="touchUpInside" id="p8q-Tn-coY"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FAf-r3-mFV">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -176,16 +179,16 @@
                                 <exclude reference="Fmy-Y0-zst"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="L5n-EF-CxJ"/>
+                                <exclude reference="bzH-9X-RUP"/>
+                                <exclude reference="ewq-Bz-JfV"/>
                                 <exclude reference="NsI-78-fo4"/>
                                 <exclude reference="WXT-6E-tCa"/>
                                 <exclude reference="IJt-KT-GpG"/>
                                 <exclude reference="V2g-cu-a7V"/>
-                                <exclude reference="MVR-95-afT"/>
                                 <exclude reference="sm2-q6-HOG"/>
+                                <exclude reference="MVR-95-afT"/>
                                 <exclude reference="xR9-xB-OY0"/>
-                                <exclude reference="L5n-EF-CxJ"/>
-                                <exclude reference="bzH-9X-RUP"/>
-                                <exclude reference="ewq-Bz-JfV"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -197,16 +200,16 @@
                                 <include reference="Fmy-Y0-zst"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="L5n-EF-CxJ"/>
+                                <include reference="bzH-9X-RUP"/>
+                                <include reference="ewq-Bz-JfV"/>
                                 <include reference="NsI-78-fo4"/>
                                 <include reference="WXT-6E-tCa"/>
                                 <include reference="IJt-KT-GpG"/>
                                 <include reference="V2g-cu-a7V"/>
-                                <include reference="MVR-95-afT"/>
                                 <include reference="sm2-q6-HOG"/>
+                                <include reference="MVR-95-afT"/>
                                 <include reference="xR9-xB-OY0"/>
-                                <include reference="L5n-EF-CxJ"/>
-                                <include reference="bzH-9X-RUP"/>
-                                <include reference="ewq-Bz-JfV"/>
                             </mask>
                         </variation>
                     </view>

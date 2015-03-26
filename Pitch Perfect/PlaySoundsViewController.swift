@@ -13,11 +13,27 @@ class PlaySoundsViewController: UIViewController {
 
     var player:AVAudioPlayer!
     var recieveRecordedAudio:RecordingData!
+    var audioEngine:AVAudioEngine!
+    var audioPlayerNode: AVAudioPlayerNode!
+    var audioFile:AVAudioFile!
+    var pitchNode:AVAudioUnitTimePitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         player = AVAudioPlayer(contentsOfURL: recieveRecordedAudio.filePath, error: nil)
         player.enableRate = true
+        
+
+        audioEngine = AVAudioEngine()
+        audioPlayerNode = AVAudioPlayerNode()
+        audioEngine.attachNode(audioPlayerNode)
+        //let distortion = audioEngine.mainMixerNode;
+        pitchNode = AVAudioUnitTimePitch()
+        audioFile = AVAudioFile(forReading: recieveRecordedAudio.filePath, error: nil)
+        audioEngine.attachNode(pitchNode)
+        audioEngine.connect(audioPlayerNode, to: pitchNode, format: audioFile.processingFormat)
+        audioEngine.connect(pitchNode, to: audioEngine.outputNode, format: audioFile.processingFormat)
+       
         // Do any additional setup after loading the view.
     }
 
@@ -31,12 +47,21 @@ class PlaySoundsViewController: UIViewController {
     }
 
     @IBAction func stopButton(sender: UIButton) {
+      stopAllAudio()
+    }
+    
+    func stopAllAudio() {
         player.stop();
         player.currentTime = 0.0
+        
+        audioPlayerNode.stop()
+        audioEngine.stop()
+        audioPlayerNode.reset()
     }
     
     func playWithRate(rate: Float) {
-        player.stop();
+        stopAllAudio()
+        
         player.rate = rate;
         player.play();
     }
@@ -46,14 +71,33 @@ class PlaySoundsViewController: UIViewController {
         playWithRate(0.5)
 
     }
+
+
+    @IBAction func chipmunkButton(sender: UIButton) {
+        playWithPitch(1000)
+    }
+    
+    func playWithPitch(pitch:Float) {
+
+        stopAllAudio()
+        
+        pitchNode.pitch = pitch
+        
+        audioPlayerNode.scheduleFile(audioFile, atTime: nil, completionHandler: nil)
+        
+        audioEngine.startAndReturnError(nil)
+        audioPlayerNode.play()
+        
+    }
+    
+    
     /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
     }
     */
-
 }
