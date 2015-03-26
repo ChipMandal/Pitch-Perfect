@@ -91,6 +91,9 @@ class PlaySoundsViewController: UIViewController {
     }
     
     
+    @IBAction func vaderButton(sender: UIButton) {
+        playWithPitch(-500)
+    }
     /*
     // MARK: - Navigation
     
