@@ -42,29 +42,65 @@
                                     <action selector="stopPress:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ZM4-J9-ssh"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qw5-mV-mp7">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="Resume">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="resumePress:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="LXH-5Z-GzS"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jOS-7I-NLE">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="Pause">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="pausePress:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="BTG-4P-LfM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.39739358613030151" green="0.81933218411652375" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstAttribute="centerY" secondItem="jOS-7I-NLE" secondAttribute="centerY" constant="-155" id="2du-n6-pYL">
+                                <variation key="widthClass=compact" constant="0.0"/>
+                            </constraint>
+                            <constraint firstAttribute="centerX" secondItem="Qw5-mV-mp7" secondAttribute="centerX" constant="-63" id="Abs-vn-vIh">
+                                <variation key="widthClass=compact" constant="0.0"/>
+                            </constraint>
                             <constraint firstAttribute="centerX" secondItem="bGK-KF-e1W" secondAttribute="centerX" id="GwI-19-ah6"/>
                             <constraint firstAttribute="centerX" secondItem="lc7-VU-Fly" secondAttribute="centerX" id="HsG-Vd-HwT"/>
                             <constraint firstItem="hgE-uK-UG7" firstAttribute="top" secondItem="lc7-VU-Fly" secondAttribute="bottom" constant="8" id="KCt-g5-4iF"/>
                             <constraint firstAttribute="centerX" secondItem="hgE-uK-UG7" secondAttribute="centerX" constant="-0.5" id="Ltn-2z-oxK"/>
+                            <constraint firstAttribute="centerY" secondItem="Qw5-mV-mp7" secondAttribute="centerY" constant="-166" id="MCu-C7-uGm">
+                                <variation key="widthClass=compact" constant="0.0"/>
+                            </constraint>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="bGK-KF-e1W" secondAttribute="bottom" constant="30" id="bkH-EI-RX8"/>
                             <constraint firstAttribute="centerY" secondItem="lc7-VU-Fly" secondAttribute="centerY" id="f8r-mG-ykL"/>
+                            <constraint firstAttribute="centerX" secondItem="jOS-7I-NLE" secondAttribute="centerX" constant="2" id="t2R-zH-ErI">
+                                <variation key="widthClass=compact" constant="0.0"/>
+                            </constraint>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="lc7-VU-Fly"/>
                                 <exclude reference="hgE-uK-UG7"/>
                                 <exclude reference="bGK-KF-e1W"/>
+                                <exclude reference="Qw5-mV-mp7"/>
+                                <exclude reference="jOS-7I-NLE"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="bkH-EI-RX8"/>
-                                <exclude reference="KCt-g5-4iF"/>
-                                <exclude reference="Ltn-2z-oxK"/>
-                                <exclude reference="GwI-19-ah6"/>
                                 <exclude reference="HsG-Vd-HwT"/>
                                 <exclude reference="f8r-mG-ykL"/>
+                                <exclude reference="2du-n6-pYL"/>
+                                <exclude reference="t2R-zH-ErI"/>
+                                <exclude reference="KCt-g5-4iF"/>
+                                <exclude reference="Ltn-2z-oxK"/>
+                                <exclude reference="Abs-vn-vIh"/>
+                                <exclude reference="MCu-C7-uGm"/>
+                                <exclude reference="GwI-19-ah6"/>
+                                <exclude reference="bkH-EI-RX8"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -72,14 +108,20 @@
                                 <include reference="lc7-VU-Fly"/>
                                 <include reference="hgE-uK-UG7"/>
                                 <include reference="bGK-KF-e1W"/>
+                                <include reference="Qw5-mV-mp7"/>
+                                <include reference="jOS-7I-NLE"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="bkH-EI-RX8"/>
-                                <include reference="KCt-g5-4iF"/>
-                                <include reference="Ltn-2z-oxK"/>
-                                <include reference="GwI-19-ah6"/>
                                 <include reference="HsG-Vd-HwT"/>
                                 <include reference="f8r-mG-ykL"/>
+                                <include reference="2du-n6-pYL"/>
+                                <include reference="t2R-zH-ErI"/>
+                                <include reference="KCt-g5-4iF"/>
+                                <include reference="Ltn-2z-oxK"/>
+                                <include reference="Abs-vn-vIh"/>
+                                <include reference="MCu-C7-uGm"/>
+                                <include reference="GwI-19-ah6"/>
+                                <include reference="bkH-EI-RX8"/>
                             </mask>
                         </variation>
                     </view>
@@ -87,8 +129,10 @@
                         <barButtonItem key="backBarButtonItem" title="Back To Record" id="kPk-FA-Rpr"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="pauseButton" destination="jOS-7I-NLE" id="qfh-sA-mlP"/>
                         <outlet property="recordButton" destination="lc7-VU-Fly" id="P3F-Zv-4WT"/>
                         <outlet property="recordingLabel" destination="hgE-uK-UG7" id="Ez8-fF-zgj"/>
+                        <outlet property="resumeButton" destination="Qw5-mV-mp7" id="XgW-h1-U3g"/>
                         <outlet property="stopButton" destination="bGK-KF-e1W" id="ruE-UG-8g1"/>
                         <segue destination="5L9-GA-CG3" kind="show" identifier="stopRecording" id="QfN-lS-Vch"/>
                     </connections>
@@ -241,6 +285,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Pause" width="80" height="80"/>
+        <image name="Resume" width="80" height="80"/>
         <image name="Vader" width="100" height="100"/>
         <image name="chipmunk" width="100" height="100"/>
         <image name="hare" width="100" height="100"/>
