@@ -9,6 +9,10 @@
 import Foundation
 
 class RecordingData :NSObject {
-    var fileName: String!
-    var filePath: NSURL!
+    let fileName: String!
+    let filePath: NSURL!
+    init(fileName:String, filePath:NSURL) {
+        self.fileName = fileName
+        self.filePath = filePath
+    }
 }
