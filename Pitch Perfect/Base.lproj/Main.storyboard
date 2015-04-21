@@ -91,16 +91,16 @@
                                 <exclude reference="jOS-7I-NLE"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="HsG-Vd-HwT"/>
-                                <exclude reference="f8r-mG-ykL"/>
-                                <exclude reference="2du-n6-pYL"/>
-                                <exclude reference="t2R-zH-ErI"/>
+                                <exclude reference="bkH-EI-RX8"/>
                                 <exclude reference="KCt-g5-4iF"/>
                                 <exclude reference="Ltn-2z-oxK"/>
                                 <exclude reference="Abs-vn-vIh"/>
                                 <exclude reference="MCu-C7-uGm"/>
                                 <exclude reference="GwI-19-ah6"/>
-                                <exclude reference="bkH-EI-RX8"/>
+                                <exclude reference="2du-n6-pYL"/>
+                                <exclude reference="t2R-zH-ErI"/>
+                                <exclude reference="HsG-Vd-HwT"/>
+                                <exclude reference="f8r-mG-ykL"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -112,16 +112,16 @@
                                 <include reference="jOS-7I-NLE"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="HsG-Vd-HwT"/>
-                                <include reference="f8r-mG-ykL"/>
-                                <include reference="2du-n6-pYL"/>
-                                <include reference="t2R-zH-ErI"/>
+                                <include reference="bkH-EI-RX8"/>
                                 <include reference="KCt-g5-4iF"/>
                                 <include reference="Ltn-2z-oxK"/>
                                 <include reference="Abs-vn-vIh"/>
                                 <include reference="MCu-C7-uGm"/>
                                 <include reference="GwI-19-ah6"/>
-                                <include reference="bkH-EI-RX8"/>
+                                <include reference="2du-n6-pYL"/>
+                                <include reference="t2R-zH-ErI"/>
+                                <include reference="HsG-Vd-HwT"/>
+                                <include reference="f8r-mG-ykL"/>
                             </mask>
                         </variation>
                     </view>

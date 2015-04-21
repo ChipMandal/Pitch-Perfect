@@ -17,7 +17,11 @@ class PlaySoundsViewController: UIViewController {
     var audioPlayerNode: AVAudioPlayerNode!
     var audioFile:AVAudioFile!
     var pitchNode:AVAudioUnitTimePitch!
-    
+    var reverbNode:AVAudioUnitReverb!
+    var audioPlayerNode2: AVAudioPlayerNode!
+
+    var audioEngineReverb:AVAudioEngine!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,7 +40,22 @@ class PlaySoundsViewController: UIViewController {
         audioEngine.attachNode(pitchNode)
         audioEngine.connect(audioPlayerNode, to: pitchNode, format: audioFile.processingFormat)
         audioEngine.connect(pitchNode, to: audioEngine.outputNode, format: audioFile.processingFormat)
-       
+        
+        
+        //Setup reverb audio engine
+        audioEngineReverb = AVAudioEngine()
+        
+        audioPlayerNode2 = AVAudioPlayerNode()
+        audioEngineReverb.attachNode(audioPlayerNode2)
+        reverbNode = AVAudioUnitReverb()
+        reverbNode.loadFactoryPreset(AVAudioUnitReverbPreset.Cathedral)
+        reverbNode.wetDryMix = 20
+        
+        audioEngineReverb.attachNode(reverbNode)
+        audioEngineReverb.connect(audioPlayerNode2, to: reverbNode, format: audioFile.processingFormat)
+        audioEngineReverb.connect(reverbNode, to: audioEngineReverb.outputNode, format: audioFile.processingFormat)
+        
+        
         // Do any additional setup after loading the view.
     }
 
@@ -69,7 +88,14 @@ class PlaySoundsViewController: UIViewController {
         player.play();
     }
     @IBAction func snailButton(sender: UIButton) {
-        playWithRate(0.5)
+//        playWithRate(0.5)
+        audioPlayerNode2.stop()
+        audioEngineReverb.stop()
+        audioPlayerNode2.reset()
+        audioPlayerNode2.scheduleFile(audioFile, atTime: nil, completionHandler: nil)
+        
+        audioEngineReverb.startAndReturnError(nil)
+        audioPlayerNode2.play()
     }
 
 
