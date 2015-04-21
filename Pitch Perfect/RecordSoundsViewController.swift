@@ -27,6 +27,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     override func viewWillAppear(animated: Bool) {
         stopButton.hidden = true;
         recordButton.enabled = true;
+        recordingLabel.text = "Tap to Record"
 
     }
 
@@ -37,7 +38,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
 
     @IBAction func recordPress(sender: UIButton, forEvent event: UIEvent) {
         recordButton.enabled = false;
-        recordingLabel.hidden = false;
+        recordingLabel.text = "Recording"
         stopButton.hidden = false;
         
         

@@ -20,14 +20,17 @@ class PlaySoundsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Set up AVAudio Player
         player = AVAudioPlayer(contentsOfURL: recieveRecordedAudio.filePath, error: nil)
         player.enableRate = true
         
 
+        //Setup audio engine
         audioEngine = AVAudioEngine()
         audioPlayerNode = AVAudioPlayerNode()
         audioEngine.attachNode(audioPlayerNode)
-        //let distortion = audioEngine.mainMixerNode;
+
         pitchNode = AVAudioUnitTimePitch()
         audioFile = AVAudioFile(forReading: recieveRecordedAudio.filePath, error: nil)
         audioEngine.attachNode(pitchNode)
@@ -66,10 +69,7 @@ class PlaySoundsViewController: UIViewController {
         player.play();
     }
     @IBAction func snailButton(sender: UIButton) {
-//
-//        var player = AVAudioPlayer(contentsOfURL: fileUrl, error:nil);
         playWithRate(0.5)
-
     }
 
 
