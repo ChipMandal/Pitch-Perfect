@@ -53,17 +53,27 @@ class PlaySoundsViewController: UIViewController {
     @IBAction func hareButton(sender: UIButton) {
         playWithRate(2.0)
     }
-
-    @IBAction func stopButton(sender: UIButton) {
-      stopAllAudio()
+    
+    @IBAction func snailButton(sender: UIButton) {
+        playWithRate(0.5)
     }
     
+    @IBAction func chipmunkButton(sender: UIButton) {
+        playWithPitch(1000)
+    }
+    @IBAction func vaderButton(sender: UIButton) {
+        playWithPitch(-500)
+    }
     @IBAction func echoPress(sender: AnyObject) {
         playEcho(4, delayMs: 500, attenuation: 0.1)
     }
     
     @IBAction func reverbPress(sender: AnyObject) {
         playWithReverb()
+    }
+    
+    @IBAction func stopButton(sender: UIButton) {
+      stopAllAudio()
     }
     
     func stopAllAudio() {
@@ -88,14 +98,6 @@ class PlaySoundsViewController: UIViewController {
         audioEngine.startAndReturnError(nil)
         audioPlayerNode.play()
         
-    }
-    @IBAction func snailButton(sender: UIButton) {
-        playWithRate(0.5)
-    }
-
-
-    @IBAction func chipmunkButton(sender: UIButton) {
-        playWithPitch(1000)
     }
     
     func playWithPitch(pitch:Float) {
@@ -126,11 +128,7 @@ class PlaySoundsViewController: UIViewController {
         
     }
 
-    
-    @IBAction func vaderButton(sender: UIButton) {
-        playWithPitch(-500)
-    }
-    
+
     func playEcho(repeat: Int, delayMs: Double, attenuation:Float) {
         stopAllAudio()
         
