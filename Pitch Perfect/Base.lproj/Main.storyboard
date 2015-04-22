@@ -202,20 +202,52 @@
                                     <action selector="vaderButton:" destination="5L9-GA-CG3" eventType="touchUpInside" id="emy-jn-y2F"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XBY-oh-7Os">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="Echo">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="echoPress:" destination="5L9-GA-CG3" eventType="touchUpInside" id="d3D-kE-6JY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="duQ-Bu-sa8">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="Reverb">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="reverbPress:" destination="5L9-GA-CG3" eventType="touchUpInside" id="zHV-kM-gwU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.39739358609999997" green="0.81933218409999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.39739358609999997" green="0.81933218409999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstAttribute="centerY" secondItem="XBY-oh-7Os" secondAttribute="centerY" constant="-12" id="0nn-mG-jUL"/>
+                            <constraint firstItem="XBY-oh-7Os" firstAttribute="top" secondItem="668-bE-ddh" secondAttribute="bottom" constant="65" id="97N-j1-yzp">
+                                <variation key="widthClass=compact" constant="61"/>
+                            </constraint>
+                            <constraint firstItem="Fmy-Y0-zst" firstAttribute="top" secondItem="duQ-Bu-sa8" secondAttribute="bottom" constant="61" id="HgJ-eO-FkD"/>
                             <constraint firstItem="FAf-r3-mFV" firstAttribute="top" secondItem="i0v-zB-n0l" secondAttribute="bottom" constant="47" id="IJt-KT-GpG"/>
+                            <constraint firstItem="XBY-oh-7Os" firstAttribute="leading" secondItem="Wso-st-GJn" secondAttribute="leadingMargin" constant="40" id="J0E-li-86l">
+                                <variation key="widthClass=compact" constant="40"/>
+                            </constraint>
                             <constraint firstItem="Iyr-fI-8tA" firstAttribute="top" secondItem="Fmy-Y0-zst" secondAttribute="bottom" constant="87" id="L5n-EF-CxJ"/>
                             <constraint firstItem="Igw-3a-A9K" firstAttribute="leading" secondItem="Wso-st-GJn" secondAttribute="leadingMargin" constant="30" id="MVR-95-afT"/>
                             <constraint firstItem="668-bE-ddh" firstAttribute="top" secondItem="i0v-zB-n0l" secondAttribute="bottom" constant="47" id="NsI-78-fo4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="FAf-r3-mFV" secondAttribute="trailing" constant="30" id="V2g-cu-a7V"/>
                             <constraint firstItem="668-bE-ddh" firstAttribute="leading" secondItem="Wso-st-GJn" secondAttribute="leadingMargin" constant="30" id="WXT-6E-tCa"/>
                             <constraint firstItem="Iyr-fI-8tA" firstAttribute="top" secondItem="dkj-sz-D9N" secondAttribute="bottom" constant="30" id="bzH-9X-RUP"/>
+                            <constraint firstAttribute="centerY" secondItem="duQ-Bu-sa8" secondAttribute="centerY" constant="-12" id="ctX-0g-RWj"/>
                             <constraint firstItem="Iyr-fI-8tA" firstAttribute="top" secondItem="Igw-3a-A9K" secondAttribute="bottom" constant="87" id="ewq-Bz-JfV"/>
+                            <constraint firstItem="Igw-3a-A9K" firstAttribute="top" secondItem="XBY-oh-7Os" secondAttribute="bottom" constant="57" id="fo9-yy-VcR">
+                                <variation key="widthClass=compact" constant="61"/>
+                            </constraint>
                             <constraint firstAttribute="trailingMargin" secondItem="Fmy-Y0-zst" secondAttribute="trailing" constant="30" id="sm2-q6-HOG"/>
                             <constraint firstAttribute="centerX" secondItem="dkj-sz-D9N" secondAttribute="centerX" id="xR9-xB-OY0"/>
+                            <constraint firstItem="duQ-Bu-sa8" firstAttribute="top" secondItem="FAf-r3-mFV" secondAttribute="bottom" constant="61" id="yOI-rc-wqA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="duQ-Bu-sa8" secondAttribute="trailing" constant="40" id="ybQ-CB-R40"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -224,18 +256,28 @@
                                 <exclude reference="FAf-r3-mFV"/>
                                 <exclude reference="dkj-sz-D9N"/>
                                 <exclude reference="Fmy-Y0-zst"/>
+                                <exclude reference="XBY-oh-7Os"/>
+                                <exclude reference="duQ-Bu-sa8"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="L5n-EF-CxJ"/>
-                                <exclude reference="bzH-9X-RUP"/>
-                                <exclude reference="ewq-Bz-JfV"/>
                                 <exclude reference="NsI-78-fo4"/>
                                 <exclude reference="WXT-6E-tCa"/>
                                 <exclude reference="IJt-KT-GpG"/>
                                 <exclude reference="V2g-cu-a7V"/>
-                                <exclude reference="sm2-q6-HOG"/>
+                                <exclude reference="0nn-mG-jUL"/>
+                                <exclude reference="97N-j1-yzp"/>
+                                <exclude reference="J0E-li-86l"/>
+                                <exclude reference="ctX-0g-RWj"/>
+                                <exclude reference="yOI-rc-wqA"/>
+                                <exclude reference="ybQ-CB-R40"/>
                                 <exclude reference="MVR-95-afT"/>
+                                <exclude reference="fo9-yy-VcR"/>
+                                <exclude reference="HgJ-eO-FkD"/>
+                                <exclude reference="sm2-q6-HOG"/>
                                 <exclude reference="xR9-xB-OY0"/>
+                                <exclude reference="L5n-EF-CxJ"/>
+                                <exclude reference="bzH-9X-RUP"/>
+                                <exclude reference="ewq-Bz-JfV"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -245,18 +287,28 @@
                                 <include reference="FAf-r3-mFV"/>
                                 <include reference="dkj-sz-D9N"/>
                                 <include reference="Fmy-Y0-zst"/>
+                                <include reference="XBY-oh-7Os"/>
+                                <include reference="duQ-Bu-sa8"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="L5n-EF-CxJ"/>
-                                <include reference="bzH-9X-RUP"/>
-                                <include reference="ewq-Bz-JfV"/>
                                 <include reference="NsI-78-fo4"/>
                                 <include reference="WXT-6E-tCa"/>
                                 <include reference="IJt-KT-GpG"/>
                                 <include reference="V2g-cu-a7V"/>
-                                <include reference="sm2-q6-HOG"/>
+                                <include reference="0nn-mG-jUL"/>
+                                <exclude reference="97N-j1-yzp"/>
+                                <include reference="J0E-li-86l"/>
+                                <include reference="ctX-0g-RWj"/>
+                                <exclude reference="yOI-rc-wqA"/>
+                                <include reference="ybQ-CB-R40"/>
                                 <include reference="MVR-95-afT"/>
+                                <exclude reference="fo9-yy-VcR"/>
+                                <exclude reference="HgJ-eO-FkD"/>
+                                <include reference="sm2-q6-HOG"/>
                                 <include reference="xR9-xB-OY0"/>
+                                <include reference="L5n-EF-CxJ"/>
+                                <include reference="bzH-9X-RUP"/>
+                                <include reference="ewq-Bz-JfV"/>
                             </mask>
                         </variation>
                     </view>
@@ -285,8 +337,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Echo" width="80" height="80"/>
         <image name="Pause" width="80" height="80"/>
         <image name="Resume" width="80" height="80"/>
+        <image name="Reverb" width="80" height="80"/>
         <image name="Vader" width="100" height="100"/>
         <image name="chipmunk" width="100" height="100"/>
         <image name="hare" width="100" height="100"/>

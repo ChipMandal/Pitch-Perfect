@@ -1,4 +1,4 @@
-//
+    //
 //  PlaySoundsViewController.swift
 //  Pitch Perfect
 //
@@ -11,50 +11,36 @@ import AVFoundation
 
 class PlaySoundsViewController: UIViewController {
 
-    var player:AVAudioPlayer!
     var recieveRecordedAudio:RecordingData!
     var audioEngine:AVAudioEngine!
     var audioPlayerNode: AVAudioPlayerNode!
     var audioFile:AVAudioFile!
     var pitchNode:AVAudioUnitTimePitch!
     var reverbNode:AVAudioUnitReverb!
-    var audioPlayerReverb: AVAudioPlayerNode!
+    var echoPlayers = [AVAudioPlayer]()
 
     var audioEngineReverb:AVAudioEngine!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Set up AVAudio Player
-        player = AVAudioPlayer(contentsOfURL: recieveRecordedAudio.filePath, error: nil)
-        player.enableRate = true
-        
-
         //Setup audio engine
         audioEngine = AVAudioEngine()
         audioPlayerNode = AVAudioPlayerNode()
         audioEngine.attachNode(audioPlayerNode)
 
         pitchNode = AVAudioUnitTimePitch()
-        audioFile = AVAudioFile(forReading: recieveRecordedAudio.filePath, error: nil)
-        audioEngine.attachNode(pitchNode)
-        audioEngine.connect(audioPlayerNode, to: pitchNode, format: audioFile.processingFormat)
-        audioEngine.connect(pitchNode, to: audioEngine.outputNode, format: audioFile.processingFormat)
         
-        
-        //Setup reverb audio engine
-        audioEngineReverb = AVAudioEngine()
-        
-        audioPlayerReverb = AVAudioPlayerNode()
-        audioEngineReverb.attachNode(audioPlayerReverb)
         reverbNode = AVAudioUnitReverb()
         reverbNode.loadFactoryPreset(AVAudioUnitReverbPreset.Cathedral)
-        reverbNode.wetDryMix = 20
         
-        audioEngineReverb.attachNode(reverbNode)
-        audioEngineReverb.connect(audioPlayerReverb, to: reverbNode, format: audioFile.processingFormat)
-        audioEngineReverb.connect(reverbNode, to: audioEngineReverb.outputNode, format: audioFile.processingFormat)
         
+        audioFile = AVAudioFile(forReading: recieveRecordedAudio.filePath, error: nil)
+        audioEngine.attachNode(pitchNode)
+        audioEngine.attachNode(reverbNode)
+        audioEngine.connect(audioPlayerNode, to: reverbNode, format: audioFile.processingFormat)
+        audioEngine.connect(reverbNode, to: pitchNode, format: audioFile.processingFormat)
+        audioEngine.connect(pitchNode, to: audioEngine.outputNode, format: audioFile.processingFormat)
         
         // Do any additional setup after loading the view.
     }
@@ -72,35 +58,39 @@ class PlaySoundsViewController: UIViewController {
       stopAllAudio()
     }
     
+    @IBAction func echoPress(sender: AnyObject) {
+        playEcho(4, delayMs: 500, attenuation: 0.1)
+    }
+    
+    @IBAction func reverbPress(sender: AnyObject) {
+        playWithReverb()
+    }
+    
     func stopAllAudio() {
-        player.stop();
-        player.currentTime = 0.0
         
         audioPlayerNode.stop()
         audioEngine.stop()
         audioPlayerNode.reset()
         
-        audioPlayerReverb.stop()
-        audioEngineReverb.stop()
-        audioPlayerReverb.reset()
+        for player in echoPlayers {
+            player.stop()
+        }
+        
     }
     
     func playWithRate(rate: Float) {
         stopAllAudio()
+        reverbNode.wetDryMix = 0
+        pitchNode.pitch = 1
+        pitchNode.rate = rate
+        audioPlayerNode.scheduleFile(audioFile, atTime: nil, completionHandler: nil)
         
-        player.rate = rate;
-        player.play();
+        audioEngine.startAndReturnError(nil)
+        audioPlayerNode.play()
+        
     }
     @IBAction func snailButton(sender: UIButton) {
-//        playWithRate(0.5)
-        stopAllAudio()
-        audioPlayerReverb.stop()
-        audioEngineReverb.stop()
-        audioPlayerReverb.reset()
-        audioPlayerReverb.scheduleFile(audioFile, atTime: nil, completionHandler: nil)
-        
-        audioEngineReverb.startAndReturnError(nil)
-        audioPlayerReverb.play()
+        playWithRate(0.5)
     }
 
 
@@ -111,8 +101,9 @@ class PlaySoundsViewController: UIViewController {
     func playWithPitch(pitch:Float) {
 
         stopAllAudio()
-        
+        reverbNode.wetDryMix = 0
         pitchNode.pitch = pitch
+        pitchNode.rate = 1
         
         audioPlayerNode.scheduleFile(audioFile, atTime: nil, completionHandler: nil)
         
@@ -121,9 +112,43 @@ class PlaySoundsViewController: UIViewController {
         
     }
     
+    func playWithReverb() {
+        
+        stopAllAudio()
+        reverbNode.wetDryMix = 20
+        pitchNode.pitch = 1
+        pitchNode.rate = 1
+        
+        audioPlayerNode.scheduleFile(audioFile, atTime: nil, completionHandler: nil)
+        
+        audioEngine.startAndReturnError(nil)
+        audioPlayerNode.play()
+        
+    }
+
     
     @IBAction func vaderButton(sender: UIButton) {
         playWithPitch(-500)
+    }
+    
+    func playEcho(repeat: Int, delayMs: Double, attenuation:Float) {
+        stopAllAudio()
+        
+        echoPlayers.removeAll(keepCapacity: true)
+        
+        for i in 1...repeat {
+            echoPlayers.append(AVAudioPlayer(contentsOfURL: recieveRecordedAudio.filePath, error: nil))
+        }
+        
+        print(echoPlayers.endIndex)
+        var volume:Float = 1.0
+        for i in 0...(repeat-1) {
+            //echoPlayers[i] = AVAudioPlayer()
+            echoPlayers[i].volume = volume
+            var currDelay:NSTimeInterval = (delayMs*Double(i))/1000
+            echoPlayers[i].playAtTime(echoPlayers[i].deviceCurrentTime + currDelay)
+            volume = volume * attenuation
+        }
     }
     /*
     // MARK: - Navigation
