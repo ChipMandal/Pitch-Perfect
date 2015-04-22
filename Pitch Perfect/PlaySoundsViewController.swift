@@ -18,7 +18,7 @@ class PlaySoundsViewController: UIViewController {
     var audioFile:AVAudioFile!
     var pitchNode:AVAudioUnitTimePitch!
     var reverbNode:AVAudioUnitReverb!
-    var audioPlayerNode2: AVAudioPlayerNode!
+    var audioPlayerReverb: AVAudioPlayerNode!
 
     var audioEngineReverb:AVAudioEngine!
 
@@ -45,14 +45,14 @@ class PlaySoundsViewController: UIViewController {
         //Setup reverb audio engine
         audioEngineReverb = AVAudioEngine()
         
-        audioPlayerNode2 = AVAudioPlayerNode()
-        audioEngineReverb.attachNode(audioPlayerNode2)
+        audioPlayerReverb = AVAudioPlayerNode()
+        audioEngineReverb.attachNode(audioPlayerReverb)
         reverbNode = AVAudioUnitReverb()
         reverbNode.loadFactoryPreset(AVAudioUnitReverbPreset.Cathedral)
         reverbNode.wetDryMix = 20
         
         audioEngineReverb.attachNode(reverbNode)
-        audioEngineReverb.connect(audioPlayerNode2, to: reverbNode, format: audioFile.processingFormat)
+        audioEngineReverb.connect(audioPlayerReverb, to: reverbNode, format: audioFile.processingFormat)
         audioEngineReverb.connect(reverbNode, to: audioEngineReverb.outputNode, format: audioFile.processingFormat)
         
         
@@ -79,6 +79,10 @@ class PlaySoundsViewController: UIViewController {
         audioPlayerNode.stop()
         audioEngine.stop()
         audioPlayerNode.reset()
+        
+        audioPlayerReverb.stop()
+        audioEngineReverb.stop()
+        audioPlayerReverb.reset()
     }
     
     func playWithRate(rate: Float) {
@@ -89,13 +93,14 @@ class PlaySoundsViewController: UIViewController {
     }
     @IBAction func snailButton(sender: UIButton) {
 //        playWithRate(0.5)
-        audioPlayerNode2.stop()
+        stopAllAudio()
+        audioPlayerReverb.stop()
         audioEngineReverb.stop()
-        audioPlayerNode2.reset()
-        audioPlayerNode2.scheduleFile(audioFile, atTime: nil, completionHandler: nil)
+        audioPlayerReverb.reset()
+        audioPlayerReverb.scheduleFile(audioFile, atTime: nil, completionHandler: nil)
         
         audioEngineReverb.startAndReturnError(nil)
-        audioPlayerNode2.play()
+        audioPlayerReverb.play()
     }
 
 
